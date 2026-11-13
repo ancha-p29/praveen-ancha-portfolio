@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>Praveen Ancha — Product Manager Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b1526; --muted:#52607a; --blue:#0b78c5; --blue2:#075e9e; --teal:#0db89a;
+  --card:#f4f8ffcc; --card-solid:#f7faff; --line:#0b15261f; --chip:#e6f3ff; --dock:#ffffffb8;
+  --shadow:0 24px 60px rgba(11,40,80,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --ink:#eef4ff; --muted:#a9b8d0; --card:#0f1e35e6; --card-solid:#12233f; --line:#ffffff24; --chip:#17365e; --dock:#0f1e35cc; --shadow:0 24px 60px rgba(0,0,0,.45); }
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);background:#cfe8ff;min-height:100vh;overflow-x:hidden}
+button,[role="button"],a.btn,select,input{min-height:44px}
+.wallpaper{position:fixed;inset:0;z-index:-2;background:
+ radial-gradient(900px 500px at 85% 10%, #2dd4bf88, transparent 60%),
+ radial-gradient(800px 600px at 95% 45%, #2563ebcc, transparent 62%),
+ radial-gradient(700px 500px at 0% 90%, #1d4ed8aa, transparent 60%),
+ radial-gradient(600px 400px at 70% 100%, #fde68a99, transparent 60%),
+ linear-gradient(135deg,#fefce8 0%,#dbeafe 38%,#bfdbfe 65%,#fef9c3 100%)}
+@media (prefers-color-scheme: dark){.wallpaper{background:radial-gradient(900px 500px at 85% 10%, #134e4a, transparent 60%),radial-gradient(800px 600px at 95% 45%, #1e3a8a, transparent 62%),linear-gradient(135deg,#0b1526,#12233f 60%,#1e293b)}}
+.topbar{height:42px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:13px;font-weight:700;background:#ffffff55;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff66;position:sticky;top:0;z-index:50}
+.topbar .right{display:flex;gap:12px;align-items:center;font-weight:600}
+.avatar{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800}
+.layout{max-width:1240px;margin:0 auto;padding:18px 14px 118px;display:grid;grid-template-columns:1fr 92px;gap:14px}
+@media(max-width:760px){.layout{grid-template-columns:1fr;padding:10px 10px 104px}}
+.window{background:var(--card);backdrop-filter:blur(18px);border:1px solid #ffffff88;border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.win-head{display:flex;gap:8px;align-items:center;padding:14px 18px 0}
+.dot{width:11px;height:11px;border-radius:50%}
+.view{display:none;padding:10px 28px 30px;animation:fade .35s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.view{animation:none}}
+/* HERO */
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:28px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hola{color:var(--blue);font-weight:800;font-size:22px;margin-top:14px}
+h1{font-family:Sora,sans-serif;font-size:50px;line-height:.98;margin:6px 0 12px;letter-spacing:-.03em}
+@media(max-width:560px){h1{font-size:38px}.view{padding:8px 18px 24px}.hola{margin-top:6px;font-size:19px}}
+.lede{color:var(--muted);line-height:1.65;font-size:15.5px}
+.tagline{font-weight:800;margin:14px 0;font-size:14.5px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#0b1526;font-weight:700;text-decoration:none;cursor:pointer;font-size:14px}
+@media(prefers-color-scheme:dark){.btn{background:#1e365e;color:#fff}}
+.btn.primary{background:var(--blue);color:#fff;border-color:transparent}
+.btn.dark{background:#0b1526;color:#fff;border-color:transparent}
+.social{width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center;text-decoration:none;font-weight:800}
+.stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px}
+.stat b{font-family:Sora;display:block;font-size:20px}.stat span{font-size:12px;color:var(--muted);font-weight:700}
+.why{margin-top:24px;border-top:1px solid var(--line);padding-top:16px}
+.why h3{font-family:Sora;margin:0 0 6px}
+.quadrant{position:relative;height:205px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);margin:16px 10px 10px 16px}
+.quadrant:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+.quadrant:after{content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:var(--line)}
+.qdot{position:absolute;width:10px;height:10px;border-radius:50%;background:#f43f5e}
+.qyou{position:absolute;left:62%;top:22%;width:16px;height:16px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 10px #0db89a22;z-index:2}
+.pill{position:absolute;font-size:11px;font-weight:700;background:#dcfce7;color:#14532d;padding:5px 9px;border-radius:999px;border:1px solid #86efac;white-space:nowrap;z-index:3}
+/* FIT CHECKER CARD */
+.fit-card{background:var(--card-solid);border:1.5px solid var(--blue);border-radius:18px;overflow:hidden;box-shadow:0 16px 40px rgba(11,120,197,.16)}
+.fit-head{background:var(--blue);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.fit-head b{font-family:Sora;font-size:16px}.fit-head span{font-size:12px;opacity:.92;display:block;font-weight:600}
+.live{font-size:11px;font-weight:800;background:#dcfce7;color:#14532d;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.fit-body{padding:16px}
+.fit-body label{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);display:block;margin:12px 0 6px}
+.fit-body label:first-child{margin-top:0}
+.fit-body select{width:100%;border:1px solid var(--line);border-radius:12px;padding:0 12px;font:inherit;font-weight:700;background:transparent;color:var(--ink)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills button{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:8px 13px;font-weight:700;font-size:13px;cursor:pointer;min-height:40px}
+.pills button.on{background:var(--blue);color:#fff;border-color:transparent}
+.fit-result{margin-top:16px;background:var(--chip);border-radius:14px;padding:14px;line-height:1.55;font-size:14.5px}
+.fit-result h4{margin:0 0 6px;font-family:Sora;font-size:16px}
+.fit-result ul{margin:6px 0 0 18px;padding:0}
+.meter{height:10px;background:#ffffff88;border-radius:999px;overflow:hidden;margin:10px 0 4px}
+.meter i{display:block;height:100%;background:var(--teal);border-radius:999px;transition:width .4s ease}
+.fit-note{font-size:12px;color:var(--muted);padding:0 16px 14px;line-height:1.5}
+/* SPIDEY INTRO — hangs in on load */
+.spidey-wrap{position:fixed;top:0;left:30%;transform:translateX(-50%);z-index:120;width:320px;max-width:92vw;pointer-events:none;display:flex;flex-direction:column;align-items:center}
+@media(max-width:760px){.spidey-wrap{left:50%}}
+.spidey-wrap.is-in{pointer-events:auto}
+.spidey-drop{display:flex;flex-direction:column;align-items:center;transform:translateY(-115%);transition:transform 1.15s cubic-bezier(.22,1.35,.36,1)}
+.spidey-wrap.is-in .spidey-drop{transform:translateY(0)}
+.spidey-wrap.is-out .spidey-drop{transform:translateY(-118%);transition:transform .6s ease-in}
+.spidey-bob{animation:spideyBob 2.6s ease-in-out infinite;display:flex;flex-direction:column;align-items:center}
+@keyframes spideyBob{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+.spidey-swing{transform-origin:top center;animation:spideySwing 3.2s ease-in-out infinite;display:flex;flex-direction:column;align-items:center}
+@keyframes spideySwing{0%,100%{transform:rotate(-5.5deg)}50%{transform:rotate(5.5deg)}}
+.web-line{width:2px;height:108px;background:repeating-linear-gradient(180deg,#fff 0 6px,#dbeafe 6px 8px);box-shadow:0 0 0 1px rgba(11,21,38,.08);position:relative;transform-origin:top center;animation:webSway 3.2s ease-in-out infinite}
+@keyframes webSway{0%,100%{transform:rotate(2deg) scaleY(1)}50%{transform:rotate(-2deg) scaleY(1.04)}}
+.web-line:before,.web-line:after{content:"";position:absolute;left:50%;width:54px;height:1px;background:#e2e8f0;top:14px;transform-origin:left center}
+.web-line:before{transform:rotate(24deg)}
+.web-line:after{transform:rotate(156deg)}
+.spidey-char{width:122px;height:auto;filter:drop-shadow(0 14px 18px rgba(0,0,0,.28));margin-top:-2px;overflow:visible}
+.spidey-char .wave-arm{transform-box:view-box;transform-origin:80px 58px;animation:waveArm 1.15s ease-in-out infinite}
+@keyframes waveArm{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-24deg)}}
+.spidey-char .leg-l{transform-box:view-box;transform-origin:47px 36px;animation:kickLeg 2.2s ease-in-out infinite}
+.spidey-char .leg-r{transform-box:view-box;transform-origin:73px 36px;animation:kickLeg 2.2s ease-in-out infinite reverse}
+@keyframes kickLeg{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(6deg)}}
+.spidey-char .eye{transform-box:fill-box;transform-origin:center;animation:blink 4.4s infinite}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+.spidey-char .mouth{transform-box:fill-box;transform-origin:center}
+.spidey-wrap.speaking .spidey-char .mouth{animation:talk .26s ease-in-out infinite}
+@keyframes talk{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1.3)}}
+.spidey-char .sound-arc{opacity:0;stroke:#0b78c5;stroke-width:2.4;fill:none;stroke-linecap:round}
+.spidey-wrap.speaking .spidey-char .sound-arc{animation:soundPulse .9s ease-out infinite}
+.spidey-char .sound-arc.a2{animation-delay:.3s}
+@keyframes soundPulse{0%{opacity:0}35%{opacity:.95}100%{opacity:0}}
+.speech{position:relative;margin-top:8px;background:#fff;color:#0b1526;border:2.5px solid #0b1526;border-radius:22px;padding:12px 16px 11px;max-width:292px;text-align:center;box-shadow:0 12px 26px rgba(11,21,38,.22);opacity:0;transform:scale(.7) translateY(10px);transition:all .38s cubic-bezier(.34,1.56,.64,1) .8s}
+.spidey-wrap.is-in .speech{opacity:1;transform:scale(1) translateY(0)}
+.speech:before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(45deg);width:18px;height:18px;background:#fff;border-left:2.5px solid #0b1526;border-top:2.5px solid #0b1526}
+.speech b{font-family:Sora,sans-serif;font-size:19px;line-height:1.18;display:block;letter-spacing:-.01em}
+.speech b em{font-style:normal;color:#e23636}
+.speech b .w{display:inline-block;opacity:0;transform:translateY(5px)}
+.spidey-wrap.is-in .speech b .w{animation:wordIn .3s ease forwards;animation-delay:calc(1s + var(--i)*.34s)}
+@keyframes wordIn{to{opacity:1;transform:none}}
+.speech p{margin:5px 0 0;font-size:12.5px;line-height:1.45;color:#52607a;font-weight:600}
+.voice-btn{margin-top:9px;display:none;align-items:center;gap:7px;background:#e23636;color:#fff;border:0;border-radius:999px;padding:8px 14px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer;min-height:38px;box-shadow:0 6px 14px rgba(226,54,54,.35)}
+.voice-btn.show{display:inline-flex;animation:voicePulse 1.4s ease-in-out infinite}
+@keyframes voicePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.spidey-close{position:absolute;top:118px;right:2px;width:36px;height:36px;min-height:36px;border-radius:50%;border:2px solid #0b1526;background:#fff;color:#0b1526;font-size:18px;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.18);z-index:2}
+.spidey-replay{position:fixed;top:52px;right:12px;z-index:55;background:#e23636;color:#fff;border:2px solid #fff;box-shadow:0 8px 20px rgba(226,54,54,.35);border-radius:999px;padding:8px 12px;font-weight:800;font-size:12.5px;cursor:pointer;display:none;align-items:center;gap:6px;min-height:40px}
+.spidey-replay.show{display:inline-flex}
+@media(max-width:560px){.web-line{height:72px}.spidey-char{width:96px}.speech{max-width:262px;padding:10px 12px}.speech b{font-size:17px}.spidey-close{top:84px;right:0}}
+@media(prefers-color-scheme:dark){.speech{background:#fff;color:#0b1526}.web-line{background:repeating-linear-gradient(180deg,#fff 0 6px,#cbd5e1 6px 8px)}}
+@media(prefers-reduced-motion:reduce){.spidey-swing,.spidey-bob,.web-line,.spidey-char .wave-arm,.spidey-char .leg-l,.spidey-char .leg-r,.spidey-char .eye,.spidey-wrap.speaking .spidey-char .mouth,.spidey-wrap.speaking .spidey-char .sound-arc,.voice-btn.show{animation:none}.spidey-drop,.speech{transition:none}.speech b .w{opacity:1;transform:none;animation:none}}
+/* DESKTOP ICONS */
+.desktop{display:flex;flex-direction:column;gap:22px;align-items:center;padding-top:8px}
+@media(max-width:760px){.desktop{flex-direction:row;justify-content:center;order:-1;gap:12px;padding-top:2px}}
+.dicon{background:none;border:0;cursor:pointer;text-align:center;font:inherit;padding:4px}
+.dicon .folder{width:64px;height:52px;background:linear-gradient(180deg,#38bdf8,#0284c7);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:24px;margin:0 auto;box-shadow:0 10px 20px rgba(2,132,199,.3)}
+@media(max-width:760px){.dicon .folder{width:50px;height:42px;font-size:19px}}
+.dicon span{display:inline-block;margin-top:7px;background:#fff;color:#111;font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px}
+/* DOCK */
+.dock{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;background:var(--dock);backdrop-filter:blur(16px);border:1px solid #ffffff88;border-radius:20px;padding:8px;display:flex;gap:6px;box-shadow:0 16px 40px rgba(0,0,0,.2);max-width:97vw}
+.dock button{border:0;background:#ffffff;min-width:56px;height:56px;border-radius:14px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:10px;font-weight:800;color:#0b1526;padding:4px 6px}
+@media(prefers-color-scheme:dark){.dock button{background:#1e365e;color:#fff}}
+.dock button.active{outline:2.5px solid var(--blue);outline-offset:1px}
+.dock button.fit-dock{background:var(--blue);color:#fff;min-width:70px;transform:translateY(-8px);height:64px;box-shadow:0 12px 24px rgba(11,120,197,.4);font-size:11px}
+.dock .ic{font-size:20px;line-height:1}
+@media(max-width:520px){
+  .dock{gap:4px;padding:6px;bottom:8px}
+  .dock button{min-width:43px;height:50px;font-size:9px;padding:3px 2px}
+  .dock button.fit-dock{min-width:54px;height:57px;font-size:10px}
+  .dock .ic{font-size:17px}
+  .lede{font-size:14px;line-height:1.5}
+  .lede + .lede{display:none}
+  .tagline{margin:10px 0;font-size:13.5px}
+  .dicon .folder{width:42px;height:34px;font-size:16px}
+  .dicon span{font-size:10.5px;margin-top:4px}
+  .desktop{gap:8px}
+  .win-head{padding-top:10px}
+}
+#view-home{padding-bottom:48px}
+.quadrant{margin-bottom:18px}
+/* SECTIONS */
+h2{font-family:Sora;font-size:30px;margin:14px 0 6px;letter-spacing:-.02em}
+.sub{color:var(--muted);line-height:1.6;max-width:65ch}
+.timeline{display:grid;gap:14px;margin-top:18px}
+.job{background:var(--card-solid);border:1px solid var(--line);border-radius:16px;padding:18px}
+.job-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.job h3{margin:0;font-size:18px}.job .co{color:var(--blue);font-weight:800}
+.date{font-size:12.5px;font-weight:800;color:var(--muted)}
+.job ul{margin:10px 0 0 18px;color:var(--muted);line-height:1.6;padding:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.tag{font-size:11.5px;font-weight:700;background:var(--chip);padding:5px 9px;border-radius:999px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.filters button{border:1px solid var(--line);background:var(--card-solid);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}
+.filters button.on{background:var(--blue);color:#fff;border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.proj{background:var(--card-solid);border:1px solid var(--line);border-radius:16px;padding:18px}
+.proj.recommended{outline:2.5px solid var(--teal);outline-offset:1px}
+.proj h3{margin:6px 0 8px;font-size:17px}.proj p{color:var(--muted);line-height:1.6;margin:0;font-size:14.5px}
+.proj .kicker{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.proj a{color:var(--blue);font-weight:800;text-decoration:none}
+.rec-badge{display:none;font-size:11px;font-weight:800;background:#dcfce7;color:#14532d;padding:4px 8px;border-radius:999px;margin-left:8px}
+.proj.recommended .rec-badge{display:inline-block}
+.reco{background:var(--card-solid);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}
+.reco h3{font-family:Sora;margin:0 0 4px;font-size:18px}
+.reco p{color:var(--muted);line-height:1.6;margin:0 0 12px;font-size:14.5px}
+#recoResult{margin-top:14px;line-height:1.6;font-size:14.5px}
+#recoResult ul{margin:6px 0 0 18px;padding:0}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+@media(max-width:700px){.skills{grid-template-columns:1fr}}
+.skillbox{background:var(--card-solid);border:1px solid var(--line);border-radius:16px;padding:16px}
+.skillbox h3{margin:0 0 10px;font-size:15px}.skillbox li{color:var(--muted);line-height:1.7}
+.cert{display:flex;gap:14px;align-items:center;background:var(--card-solid);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:12px}
+.cert .badge{width:48px;height:48px;border-radius:12px;background:var(--chip);display:grid;place-items:center;font-size:22px;flex:none}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
+.contact-card{background:var(--card-solid);border:1px solid var(--line);border-radius:16px;padding:18px}
+.contact-card a{color:var(--blue);font-weight:800;word-break:break-all}
+footer{text-align:center;color:var(--muted);font-size:12.5px;padding:20px 18px 8px}
+.fit-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin-top:16px}
+@media(max-width:820px){.fit-layout{grid-template-columns:1fr}}
+
+/* ============ SPIDER-MAN THEME — NYC night, classic red & blue, comic-book ============ */
+:root{
+  --ink:#f4f7ff; --muted:#c3cfe6; --blue:#e23636; --blue2:#b91c1c; --teal:#ffd23f;
+  --card:#0d1733f2; --card-solid:#141f42; --line:#ffffff2b; --chip:#1d2f63; --dock:#0a1128f5;
+  --shadow:0 24px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(226,54,54,.25);
+  --spidey-red:#e23636; --spidey-blue:#2563eb; --spidey-navy:#0a1128; --comic-yellow:#ffd23f;
+}
+body{background:#070d24;color:var(--ink)}
+/* Night-city wallpaper: red & blue glows over a midnight sky, halftone comic dots */
+.wallpaper{background:
+ radial-gradient(700px 380px at 88% -4%, rgba(226,54,54,.55), transparent 62%),
+ radial-gradient(800px 520px at 6% 22%, rgba(37,99,235,.5), transparent 62%),
+ radial-gradient(560px 380px at 72% 108%, rgba(226,54,54,.38), transparent 60%),
+ radial-gradient(rgba(255,255,255,.14) 1.2px, transparent 1.3px),
+ linear-gradient(180deg,#060a1d 0%,#0d1a45 46%,#3b1030 78%,#6d1220 100%);
+ background-size:auto,auto,auto,22px 22px,auto}
+@media (prefers-color-scheme: dark){.wallpaper{background:
+ radial-gradient(700px 380px at 88% -4%, rgba(226,54,54,.5), transparent 62%),
+ radial-gradient(800px 520px at 6% 22%, rgba(37,99,235,.45), transparent 62%),
+ radial-gradient(rgba(255,255,255,.12) 1.2px, transparent 1.3px),
+ linear-gradient(180deg,#04060f 0%,#0a1433 55%,#4a0e1c 100%);background-size:auto,auto,22px 22px,auto}}
+/* City skyline silhouette pinned to the bottom of the screen */
+.skyline{position:fixed;left:0;right:0;bottom:0;height:118px;z-index:-1;pointer-events:none;opacity:.92}
+.skyline svg{width:100%;height:100%;display:block}
+/* Giant faint web in the top corners */
+.web-corner{position:fixed;width:300px;height:300px;z-index:-1;pointer-events:none;opacity:.34}
+.web-corner.tl{top:-70px;left:-70px}
+.web-corner.tr{top:-70px;right:-70px;transform:scaleX(-1)}
+@media(max-width:640px){.web-corner{width:190px;height:190px}}
+/* Top bar — Spidey red masthead */
+.topbar{background:linear-gradient(90deg,#b91c1c,#e23636 55%,#991b1b);color:#fff;border-bottom:4px solid #050914;backdrop-filter:none;font-family:Bangers,"Plus Jakarta Sans",sans-serif;letter-spacing:.06em;font-size:15px;text-shadow:1px 1px 0 #050914}
+.topbar .right{font-family:"Plus Jakarta Sans",sans-serif;letter-spacing:0}
+.avatar{background:#0a1128;border:2px solid #fff;box-shadow:2px 2px 0 #050914}
+/* Main window — dark panel with a bold red comic frame */
+.window{background:var(--card);border:3px solid #050914;outline:3px solid var(--spidey-red);border-radius:20px;box-shadow:10px 12px 0 rgba(5,9,20,.55),0 24px 60px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.window:before{content:"";position:absolute;inset:0 0 auto 0;height:64px;background:radial-gradient(rgba(255,255,255,.09) 1.2px, transparent 1.3px);background-size:18px 18px;pointer-events:none}
+.dot{border:2px solid #050914;width:13px;height:13px}
+/* Comic display type */
+h1{font-family:Bangers,"Plus Jakarta Sans",sans-serif;font-size:clamp(52px,7vw,76px);line-height:.95;letter-spacing:.025em;text-transform:uppercase;color:#fff;text-shadow:4px 4px 0 var(--spidey-red),8px 8px 0 rgba(5,9,20,.85);margin:10px 0 14px}
+h2{font-family:Bangers,"Plus Jakarta Sans",sans-serif;font-size:clamp(34px,4.5vw,44px);letter-spacing:.04em;text-transform:uppercase;color:#fff;text-shadow:3px 3px 0 var(--spidey-red)}
+h2:before{content:"🕷️ ";font-size:.72em;text-shadow:none}
+.why h3,.reco h3,.job h3,.fit-head b{font-family:Bangers,"Plus Jakarta Sans",sans-serif;letter-spacing:.05em;font-weight:400}
+.fit-head b{font-size:20px}
+.hola{display:inline-block;background:var(--comic-yellow);color:#0a1128;font-family:Bangers,"Plus Jakarta Sans",sans-serif;font-size:22px;letter-spacing:.05em;padding:7px 16px 5px;border:3px solid #050914;border-radius:14px 14px 14px 3px;box-shadow:4px 4px 0 #050914;transform:rotate(-2deg);margin-top:16px}
+.comic-badge{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:#fff;color:#b91c1c;border:2.5px solid #050914;border-radius:999px;padding:6px 14px;font-weight:800;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;box-shadow:3px 3px 0 #050914}
+.comic-badge i{font-style:normal;color:var(--spidey-blue)}
+.lede{color:#dbe4f7}
+.tagline{color:var(--comic-yellow);font-family:Sora,sans-serif}
+.tagline .resp{display:block;color:#fff;font-size:13px;margin-top:4px;opacity:.92}
+/* Buttons — comic panels with hard offset shadows */
+.btn{background:#fff;color:#0a1128;border:2.5px solid #050914;box-shadow:3px 3px 0 #050914}
+.btn.primary{background:var(--spidey-red);color:#fff}
+.btn.dark{background:var(--spidey-blue);color:#fff}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #050914}
+.social{background:var(--spidey-red);border:2.5px solid #050914;box-shadow:3px 3px 0 #050914;border-radius:12px}
+.social[href*="github"]{background:#0a1128!important;border-color:#fff;box-shadow:3px 3px 0 rgba(5,9,20,.8)}
+.stat b{color:#fff}.stat b:first-letter{color:inherit}
+.stat span{color:var(--muted)}
+.why{border-top:2px dashed #ffffff40}
+.quadrant{border-left:3px solid #fff;border-bottom:3px solid #fff}
+.qdot{background:var(--spidey-blue);border:1.5px solid #fff}
+.qyou{background:var(--spidey-red);border:2.5px solid #fff;box-shadow:0 0 0 10px rgba(226,54,54,.25)}
+.pill{background:var(--comic-yellow);color:#0a1128;border:2px solid #050914;box-shadow:2px 2px 0 #050914}
+/* Fit checker — the red mask card */
+.fit-card{background:var(--card-solid);border:3px solid #050914;border-radius:18px;box-shadow:8px 8px 0 var(--spidey-red),0 18px 44px rgba(0,0,0,.45)}
+.fit-head{background:linear-gradient(120deg,#b91c1c,#e23636 60%,#7f1d1d);border-bottom:3px solid #050914}
+.live{background:var(--comic-yellow);color:#0a1128;border:2px solid #050914}
+.fit-body label{color:#9fb2d8}
+.fit-body select{background:#0a1730;color:#fff;border:2px solid #ffffff38}
+.pills button,.filters button{border:2px solid #ffffff38;background:#0a1730;color:#e6edfb}
+.pills button.on,.filters button.on{background:var(--spidey-red);color:#fff;border-color:#050914;box-shadow:2.5px 2.5px 0 #050914}
+.fit-result{background:#0a1730;border:1.5px dashed #ffd23f66;color:#e6edfb}
+.fit-result h4{font-family:Sora,sans-serif}
+.meter{background:#ffffff26}.meter i{background:linear-gradient(90deg,var(--spidey-red),var(--comic-yellow))}
+.fit-note{color:var(--muted)}
+/* Cards across every view */
+.job,.proj,.skillbox,.reco,.cert,.contact-card{background:#131f42;border:1.5px solid #ffffff26;border-radius:16px;box-shadow:5px 5px 0 rgba(5,9,20,.5)}
+.job{border-top:5px solid var(--spidey-red)}
+.proj{border-top:5px solid var(--spidey-blue)}
+.proj.recommended{outline:3px solid var(--comic-yellow)}
+.job .co,.proj .kicker,.proj a,.contact-card a{color:#ff8a8a}
+.job ul,.proj p,.reco p,.sub,.skillbox li{color:var(--muted)}
+.job ul b,.job li b{color:#fff}
+.date{color:#9fb2d8}
+.tag{background:#1d2f63;color:#dbe7ff;border:1px solid #ffffff22}
+.rec-badge{background:var(--comic-yellow);color:#0a1128;border:1.5px solid #050914}
+.cert .badge{background:#1d2f63;border:1.5px solid #ffffff26}
+#recoResult{color:#e6edfb}
+/* Desktop shortcut folders */
+.dicon .folder{background:linear-gradient(160deg,#e23636 0%,#b91c1c 48%,#1d4ed8 52%,#2563eb 100%);border:2.5px solid #050914;box-shadow:4px 4px 0 #050914;border-radius:12px}
+.dicon span{background:#fff;color:#0a1128;border:2px solid #050914;font-weight:800}
+/* Dock — black bar, red active states, spider emblem on Role Fit */
+.dock{background:var(--dock);border:2.5px solid #050914;outline:2px solid var(--spidey-red);border-radius:20px;box-shadow:0 16px 40px rgba(0,0,0,.55)}
+.dock button{background:#18264e;color:#e6edfb;border:1.5px solid #ffffff22}
+.dock button.active{outline:3px solid var(--comic-yellow);background:#23336a}
+.dock button.fit-dock{background:var(--spidey-red);color:#fff;border:2.5px solid #050914;box-shadow:4px 4px 0 #050914}
+footer{color:#8ea3cc}
+/* Spidey intro — keep the character, push the comic styling harder */
+.speech{border:3.5px solid #050914;box-shadow:6px 6px 0 rgba(5,9,20,.7)}
+.spidey-replay{background:var(--spidey-red);border:2.5px solid #050914;box-shadow:4px 4px 0 #050914}
+.spidey-close{border:3px solid #050914}
+@media(max-width:560px){h1{text-shadow:3px 3px 0 var(--spidey-red),6px 6px 0 rgba(5,9,20,.85)}.skyline{height:84px}}
+/* Phone: keep hero actions clear of the fixed dock */
+html{scroll-padding-bottom:132px}
+.actions a,.actions button{scroll-margin-bottom:132px}
+@media(max-width:760px){
+  h1{font-size:44px;margin:8px 0 10px}
+  .hola{font-size:18px;margin-top:8px;padding:5px 12px 4px}
+  .comic-badge{font-size:11px;padding:5px 10px;margin-top:9px;box-shadow:2px 2px 0 #050914}
+  .tagline .resp{font-size:12px}
+  .dock{padding:5px;bottom:6px}
+  .dock button{height:46px}
+  .dock button.fit-dock{height:52px;transform:translateY(-5px)}
+  .layout{padding-bottom:132px}
+}
+@media(prefers-reduced-motion:reduce){.hola{transform:none}}
+
+/* ============ LANDING PAGE — SPACIOUS, BETTER TYPE, MILES MORALES BLACK & RED ============ */
+:root{
+  --spidey-blue:#17171f; --spidey-red:#e23636; --miles-black:#0a0a10; --miles-red:#ff2b2b;
+  --blue:#e23636; --blue2:#b91c1c;
+}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;letter-spacing:-.01em}
+.wallpaper{background:
+ radial-gradient(760px 420px at 88% -4%, rgba(226,54,54,.62), transparent 62%),
+ radial-gradient(820px 540px at 6% 22%, rgba(20,20,28,.85), transparent 62%),
+ radial-gradient(560px 380px at 72% 108%, rgba(226,54,54,.42), transparent 60%),
+ radial-gradient(rgba(255,255,255,.13) 1.2px, transparent 1.3px),
+ linear-gradient(180deg,#050508 0%,#0d0d14 42%,#2a0a10 78%,#5c0f16 100%);
+ background-size:auto,auto,auto,22px 22px,auto}
+@media (prefers-color-scheme: dark){.wallpaper{background:
+ radial-gradient(760px 420px at 88% -4%, rgba(226,54,54,.55), transparent 62%),
+ radial-gradient(820px 540px at 6% 22%, rgba(0,0,0,.9), transparent 62%),
+ radial-gradient(rgba(255,255,255,.11) 1.2px, transparent 1.3px),
+ linear-gradient(180deg,#030305 0%,#0a0a10 55%,#3d0810 100%);background-size:auto,auto,22px 22px,auto}}
+/* Roomier landing layout */
+.layout{max-width:1320px;padding:34px 26px 150px;gap:22px}
+.view{display:none;padding:38px 48px 52px}
+.view.active{display:block}
+@media(max-width:760px){.layout{padding:18px 12px 138px}.view{padding:24px 20px 36px}}
+.hero-grid{gap:48px}
+@media(max-width:900px){.hero-grid{gap:32px}}
+h1{font-size:clamp(58px,7.4vw,84px);line-height:.94;margin:16px 0 18px}
+h2{font-size:clamp(38px,4.6vw,50px);margin:18px 0 10px}
+.lede{font-size:17.5px;line-height:1.8;letter-spacing:-.015em;font-weight:500}
+.lede + .lede{margin-top:14px}
+.tagline{font-size:15.5px;line-height:1.7;margin:20px 0 22px}
+.sub{font-size:16.5px;line-height:1.75}
+.stats{gap:28px;margin-top:28px}
+.stat b{font-size:24px}
+.stat span{font-size:12.5px;line-height:1.45;display:block;max-width:16ch}
+.why{margin-top:34px;padding-top:22px}
+.actions{gap:12px}
+.btn{padding:0 22px;font-size:15px;min-height:48px}
+.fit-card{border-radius:20px}
+.fit-body{padding:22px}
+.fit-result{padding:18px;font-size:15.5px;line-height:1.7}
+.job,.proj,.skillbox,.reco,.cert,.contact-card{padding:24px}
+.timeline,.grid,.skills{gap:20px}
+.timeline{margin-top:24px}
+.proj h3{font-size:19px;line-height:1.35}
+.proj p{font-size:15.5px;line-height:1.75}
+.job ul{line-height:1.75;font-size:15.5px}
+.grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.lede{font-size:16.5px;line-height:1.75}}
+/* Miles accents — black replaces blue everywhere it was decorative */
+.btn.dark{background:#0a0a10;color:#fff;border-color:#000}
+.social[href*="github"]{background:#0a0a10!important}
+.proj{border-top:5px solid #0a0a10;box-shadow:5px 5px 0 rgba(226,54,54,.35)}
+.proj .kicker{color:#ff6b6b}
+.qdot{background:#0a0a10;border:1.5px solid #e23636}
+.dicon .folder{background:linear-gradient(160deg,#111118 0%,#0a0a10 52%,#e23636 54%,#b91c1c 100%)}
+.comic-badge i{color:#e23636}
+.meter i{background:linear-gradient(90deg,#0a0a10,#e23636 55%,var(--comic-yellow))}
+.spidey-char .sound-arc{stroke:#e23636}
+section#view-home{padding-top:42px}
+.apps-note{margin-top:18px;background:#0a0a10;border:1.5px solid #e2363655;border-left:5px solid #e23636;border-radius:14px;padding:16px 18px;line-height:1.7;font-size:15px;color:#e6edfb}
+.apps-note b{color:#fff}
+.apps-note span{color:#ff8a8a;font-weight:800}
+
+/* ============ SEPARATE LANDING PAGE — FIRST SCREEN, MILES MORALES ============ */
+body.landing-active{overflow:hidden}
+.landing{position:fixed;inset:0;z-index:300;overflow-y:auto;overflow-x:hidden;background:#050508;color:#f6f7fb;font-family:"Plus Jakarta Sans",system-ui,sans-serif;transition:transform .75s cubic-bezier(.22,1,.36,1),opacity .6s ease}
+.landing.is-leaving{transform:translateY(-102%);opacity:.35;pointer-events:none}
+.landing-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(820px 520px at 88% 8%,rgba(226,54,54,.5),transparent 62%),radial-gradient(700px 500px at 8% 88%,rgba(226,54,54,.22),transparent 60%),radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.3px),linear-gradient(180deg,#030304 0%,#0c0c12 48%,#24060a 100%);background-size:auto,auto,22px 22px,auto}
+.landing-web{position:absolute;width:340px;height:340px;opacity:.28;pointer-events:none}
+.landing-web.tl{top:-90px;left:-90px}.landing-web.br{bottom:-110px;right:-90px;transform:rotate(180deg)}
+.landing-inner{position:relative;max-width:1280px;margin:0 auto;padding:28px 28px 56px;min-height:100dvh;display:flex;flex-direction:column}
+.landing-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:6px 0 10px}
+.landing-mark{font-family:Bangers,"Plus Jakarta Sans",sans-serif;letter-spacing:.08em;font-size:19px;color:#fff}
+.landing-mark i{font-style:normal;color:#ff2b2b}
+.landing-loc{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#ffb3b3;border:1.5px solid #ffffff2e;padding:8px 12px;border-radius:999px;background:#ffffff0d}
+.landing-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:24px;align-items:center;flex:1;padding:26px 0 10px}
+@media(max-width:920px){.landing-grid{grid-template-columns:1fr;padding-top:10px}}
+.landing-kicker{display:inline-flex;align-items:center;gap:9px;background:#ff2b2b;color:#fff;font-weight:900;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px;border:2.5px solid #000;border-radius:999px;box-shadow:4px 4px 0 #000}
+.landing-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.landing h1.landing-title{font-family:Bangers,"Plus Jakarta Sans",sans-serif;font-size:clamp(72px,10vw,138px);line-height:.86;letter-spacing:.015em;text-transform:uppercase;color:#fff;text-shadow:6px 6px 0 #e23636,12px 12px 0 rgba(0,0,0,.9);margin:22px 0 8px}
+.landing h1.landing-title span{display:block;color:#ff2b2b;text-shadow:6px 6px 0 #fff,12px 12px 0 rgba(0,0,0,.9)}
+.landing-role{font-family:Sora,sans-serif;font-size:clamp(22px,3vw,34px);line-height:1.15;font-weight:800;letter-spacing:-.02em;color:#fff;margin:14px 0 0}
+.landing-role em{font-style:normal;color:#ffd23f}
+.landing-lede{font-size:18.5px;line-height:1.75;color:#d7dce9;max-width:56ch;margin:18px 0 0;font-weight:500}
+.landing-lede strong{color:#fff}
+.landing-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}
+.enter-btn{display:inline-flex;align-items:center;gap:12px;background:#e23636;color:#fff;border:3px solid #000;box-shadow:6px 6px 0 #000,0 18px 36px rgba(226,54,54,.35);border-radius:999px;padding:0 30px;min-height:62px;font:inherit;font-size:19px;font-weight:900;letter-spacing:-.01em;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.enter-btn:hover{transform:translate(-1px,-1px);box-shadow:8px 8px 0 #000,0 20px 40px rgba(226,54,54,.4)}
+.enter-btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 #000}
+.enter-btn .arr{font-size:24px;line-height:1}
+.landing-ghost{display:inline-flex;align-items:center;min-height:52px;padding:0 20px;border-radius:999px;border:2px solid #ffffff38;color:#fff;text-decoration:none;font-weight:800;font-size:15px;background:#ffffff0a}
+.landing-proof{display:flex;gap:0;flex-wrap:wrap;margin-top:34px;border-top:1px solid #ffffff22;padding-top:20px;max-width:620px}
+.landing-proof div{padding-right:22px;margin-right:22px;border-right:1px solid #ffffff22}
+.landing-proof div:last-child{border-right:0;margin-right:0;padding-right:0}
+.landing-proof b{font-family:Sora,sans-serif;display:block;font-size:22px;color:#fff;line-height:1}
+.landing-proof span{display:block;margin-top:6px;font-size:12.5px;line-height:1.45;color:#aeb8cc;font-weight:700;max-width:18ch}
+/* Miles hero stage */
+.miles-stage{position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+@media(max-width:920px){.miles-stage{min-height:460px;order:-1}.miles-stage .miles-hero{width:250px}}
+.miles-glow{position:absolute;top:44px;width:420px;height:420px;max-width:86vw;border-radius:50%;background:radial-gradient(circle,#e23636 0%,#7f1d1d 42%,transparent 70%);opacity:.85;filter:blur(2px)}
+.miles-ring{position:absolute;top:28px;width:452px;height:452px;max-width:90vw;border-radius:50%;border:2px dashed #ffffff38}
+.miles-swing{transform-origin:top center;animation:milesSwing 3.6s ease-in-out infinite;display:flex;flex-direction:column;align-items:center;position:relative;z-index:2}
+@keyframes milesSwing{0%,100%{transform:rotate(-3.2deg)}50%{transform:rotate(3.2deg)}}
+.miles-bob{animation:milesBob 2.8s ease-in-out infinite;display:flex;flex-direction:column;align-items:center}
+@keyframes milesBob{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.miles-webline{width:3px;height:86px;background:repeating-linear-gradient(180deg,#fff 0 7px,#fca5a5 7px 9px);box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.miles-hero{width:330px;max-width:72vw;height:auto;filter:drop-shadow(0 22px 28px rgba(0,0,0,.55))}
+.miles-hero .eye{transform-box:fill-box;transform-origin:center;animation:milesBlink 4.6s infinite}
+@keyframes milesBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.miles-hero .wave{transform-box:view-box;transform-origin:298px 238px;animation:milesWave 1.3s ease-in-out infinite}
+@keyframes milesWave{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-18deg)}}
+.miles-hero .kick-l{transform-box:view-box;transform-origin:168px 96px;animation:milesKick 2.4s ease-in-out infinite}
+.miles-hero .kick-r{transform-box:view-box;transform-origin:232px 96px;animation:milesKick 2.4s ease-in-out infinite reverse}
+@keyframes milesKick{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(5deg)}}
+.miles-caption{position:relative;z-index:2;margin-top:6px;background:#fff;color:#0a0a10;border:3px solid #000;border-radius:999px;box-shadow:5px 5px 0 #000;padding:10px 18px;font-weight:900;font-size:14.5px;letter-spacing:-.01em;text-align:center}
+.miles-caption i{font-style:normal;color:#e23636}
+.landing-city{position:relative;height:74px;margin-top:auto;opacity:.95}
+.landing-city svg{width:100%;height:100%;display:block}
+.landing-scroll{position:relative;text-align:center;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8f9bb3;padding-top:14px}
+@media(max-width:640px){
+  .landing-inner{padding:18px 18px 34px}
+  .landing h1.landing-title{font-size:76px;text-shadow:4px 4px 0 #e23636,8px 8px 0 rgba(0,0,0,.9)}
+  .landing h1.landing-title span{text-shadow:4px 4px 0 #fff,8px 8px 0 rgba(0,0,0,.9)}
+  .landing-lede{font-size:16.5px;line-height:1.7}
+  .landing-role{font-size:23px}
+  .enter-btn{width:100%;justify-content:center;font-size:18px;min-height:60px}
+  .landing-ghost{flex:1;justify-content:center}
+  .landing-proof div{padding-right:14px;margin-right:14px}
+  .landing-proof b{font-size:19px}
+  .miles-glow{width:300px;height:300px}
+  .miles-ring{width:322px;height:322px}
+  .miles-webline{height:54px}
+}
+@media(prefers-reduced-motion:reduce){.miles-swing,.miles-bob,.miles-hero .wave,.miles-hero .kick-l,.miles-hero .kick-r,.miles-hero .eye{animation:none}.landing{transition:none}}
+
+/* ============ MINIMAL LANDING — name, one line, Enter button (no image) ============ */
+.landing{background:linear-gradient(180deg,#565d94 0%,#787eb3 55%,#868bb9 100%);color:#fff}
+.landing-inner{max-width:none;padding:0;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.landing-copy{padding:48px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;width:100%}
+.landing-name{font-family:Bangers,"Plus Jakarta Sans",sans-serif;font-size:clamp(58px,9vw,104px);line-height:.92;letter-spacing:.02em;text-transform:uppercase;color:#fff;text-shadow:5px 5px 0 #c81e1e,10px 10px 0 rgba(20,16,52,.55);margin:6px 0 0}
+.landing-line{font-family:Sora,sans-serif;font-size:clamp(16px,2.4vw,21px);font-weight:700;line-height:1.4;color:#eef0ff;margin:14px 0 0;letter-spacing:-.01em}
+.landing-copy .enter-btn{margin-top:24px;background:#c81e1e}
+@media(max-width:640px){.landing-name{font-size:62px;text-shadow:4px 4px 0 #c81e1e,7px 7px 0 rgba(20,16,52,.55)}.landing-copy .enter-btn{width:auto;padding:0 30px}}
+
+
+/* ============ WEB-PULL OPENING — Miles shoots webs, yanks the landing up ============ */
+.landing{will-change:transform}
+.landing.is-webbing{transform:translateY(12px) scale(.996);transition:transform .18s ease-in}
+.landing.is-pulled{transform:translateY(-104%) rotate(-.5deg);opacity:.4;transition:transform .85s cubic-bezier(.55,-.05,.25,1),opacity .7s ease;pointer-events:none}
+.web-pull{position:fixed;inset:0;z-index:350;pointer-events:none;opacity:0;visibility:hidden}
+.web-pull.show{opacity:1;visibility:visible}
+.web-pull.is-pulled{transform:translateY(-104%);transition:transform .85s cubic-bezier(.55,-.05,.25,1)}
+.web-pull svg.webs{position:absolute;inset:0;width:100%;height:100%;display:block}
+.web-pull .strand{stroke:#fff;stroke-width:3;fill:none;stroke-linecap:round;filter:drop-shadow(0 2px 3px rgba(10,8,40,.45));stroke-dasharray:900;stroke-dashoffset:900}
+.web-pull.show .strand{animation:webShoot .38s ease-out forwards}
+.web-pull.show .strand.s2{animation-delay:.05s}.web-pull.show .strand.s3{animation-delay:.1s}.web-pull.show .strand.s4{animation-delay:.14s}.web-pull.show .strand.s5{animation-delay:.18s}
+@keyframes webShoot{to{stroke-dashoffset:0}}
+.web-pull .splat{fill:#fff;opacity:0;filter:drop-shadow(0 2px 3px rgba(10,8,40,.4))}
+.web-pull.show .splat{animation:splatIn .18s ease-out .3s forwards}
+@keyframes splatIn{from{opacity:0;transform:scale(.3)}to{opacity:.95;transform:scale(1)}}
+.puller{position:absolute;top:0;left:50%;transform:translate(-50%,-135%);display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 14px 16px rgba(5,4,20,.45))}
+.web-pull.show .puller{animation:pullerDrop .5s cubic-bezier(.22,1.35,.36,1) forwards}
+@keyframes pullerDrop{to{transform:translate(-50%,0)}}
+.puller .p-web{width:3px;height:44px;background:repeating-linear-gradient(180deg,#fff 0 7px,#fca5a5 7px 9px)}
+.puller svg{width:96px;height:auto;display:block}
+.puller .p-leg-l{transform-box:view-box;transform-origin:47px 36px;animation:kickLeg 2.2s ease-in-out infinite}
+.puller .p-leg-r{transform-box:view-box;transform-origin:73px 36px;animation:kickLeg 2.2s ease-in-out infinite reverse}
+.thwip{position:absolute;top:118px;left:calc(50% + 62px);background:#ffd23f;color:#0a0a10;font-family:Bangers,"Plus Jakarta Sans",sans-serif;font-size:27px;letter-spacing:.06em;padding:7px 14px 5px;border:3px solid #000;border-radius:14px 14px 14px 3px;box-shadow:4px 4px 0 #000;transform:rotate(7deg) scale(.4);opacity:0}
+.web-pull.show .thwip{animation:thwipPop .32s cubic-bezier(.34,1.56,.64,1) .22s forwards}
+@keyframes thwipPop{to{opacity:1;transform:rotate(7deg) scale(1)}}
+@media(max-width:640px){.puller svg{width:78px}.thwip{font-size:21px;top:96px;left:calc(50% + 44px)}}
+@media(prefers-reduced-motion:reduce){.web-pull.show .strand,.web-pull.show .splat,.web-pull.show .puller,.web-pull.show .thwip,.puller .p-leg-l,.puller .p-leg-r{animation:none}.web-pull .strand{stroke-dashoffset:0}.web-pull .splat{opacity:.95}.thwip{opacity:1;transform:rotate(7deg) scale(1)}.puller{transform:translate(-50%,0)}.landing.is-webbing,.landing.is-pulled{transition:none}}
+</style>
+</head>
+<body class="landing-active">
+<!-- ============ SEPARATE LANDING PAGE — OPENS FIRST ============ -->
+<section class="landing" id="landingPage" aria-label="Landing page — Praveen Ancha portfolio entrance">
+  <div class="landing-inner">
+    <div class="landing-copy">
+      <h1 class="landing-name">Praveen Ancha</h1>
+      <p class="landing-line">Product Manager, from Boston.</p>
+      <button class="enter-btn" id="enterPortfolio" type="button">Enter Portfolio <span class="arr" aria-hidden="true">&rarr;</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- WEB-PULL OPENING — Miles drops in, shoots webs onto the landing page and pulls it up -->
+<div class="web-pull" id="webPull" aria-hidden="true">
+  <svg class="webs" viewBox="0 0 1200 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="strand s1" d="M600 128 Q340 220 140 330"/>
+    <path class="strand s2" d="M600 128 Q860 220 1060 330"/>
+    <path class="strand s3" d="M600 128 Q440 360 330 560"/>
+    <path class="strand s4" d="M600 128 Q760 360 870 560"/>
+    <path class="strand s5" d="M600 128 Q600 380 600 640"/>
+    <g fill="#fff">
+      <circle class="splat" cx="140" cy="330" r="10"/><circle class="splat" cx="1060" cy="330" r="10"/>
+      <circle class="splat" cx="330" cy="560" r="10"/><circle class="splat" cx="870" cy="560" r="10"/>
+      <circle class="splat" cx="600" cy="640" r="10"/>
+    </g>
+  </svg>
+  <div class="puller">
+    <div class="p-web" aria-hidden="true"></div>
+    <svg viewBox="0 0 120 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Miles Morales in a red hood and black jacket, hanging upside down and pulling the page up with his webs">
+      <g class="p-leg-l"><path d="M42 14 L52 40 L38 54 L27 30 Z" fill="#222636"/><rect x="29" y="2" width="17" height="11" rx="5" fill="#d92323" transform="rotate(-18 37 7)"/><rect x="29" y="10" width="17" height="4" rx="2" fill="#fff" transform="rotate(-18 37 12)"/></g>
+      <g class="p-leg-r"><path d="M78 14 L68 40 L82 54 L93 30 Z" fill="#222636"/><rect x="74" y="2" width="17" height="11" rx="5" fill="#d92323" transform="rotate(18 83 7)"/><rect x="74" y="10" width="17" height="4" rx="2" fill="#fff" transform="rotate(18 83 12)"/></g>
+      <ellipse cx="60" cy="64" rx="22" ry="20" fill="#101c26"/>
+      <path d="M40 50 Q60 58 80 50 L80 56 Q60 64 40 56 Z" fill="#c81e1e"/>
+      <path d="M40 60 Q16 66 13 84" fill="none" stroke="#101c26" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="12" cy="86" r="6" fill="#c81e1e"/>
+      <path d="M80 60 Q104 66 107 84" fill="none" stroke="#101c26" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="108" cy="86" r="6" fill="#c81e1e"/>
+      <ellipse cx="60" cy="103" rx="26" ry="26" fill="#8f1515"/>
+      <ellipse cx="60" cy="102" rx="23" ry="23" fill="#c81e1e"/>
+      <path d="M38 101 Q46 89 54 101 Q46 109 38 101Z" fill="#fff" stroke="#7f1d1d" stroke-width="1.8"/>
+      <path d="M82 101 Q74 89 66 101 Q74 109 82 101Z" fill="#fff" stroke="#7f1d1d" stroke-width="1.8"/>
+    </svg>
+  </div>
+  <div class="thwip">THWIP!</div>
+</div>
+<div class="wallpaper" aria-hidden="true"></div>
+<!-- Spider-Man city backdrop: skyline silhouette + corner webs -->
+<div class="skyline" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#04060f" d="M0 120V78h52V52h34v26h28V34h44v52h30V58h52V22h8v-8h6v8h10v58h36V44h48v34h26V28h42v58h34V50h50V16h7V6h6v10h9v66h38V40h46v40h28V56h54v26h30V30h44v54h32V62h48V36h52v46h28V52h50v30h34V24h8V14h6v10h8v60h40V46h44v36h26V58h52v24h30V38h46v46h32v36z"/><g fill="#ffd23f" opacity=".85"><rect x="70" y="60" width="7" height="9"/><rect x="180" y="34" width="7" height="9"/><rect x="330" y="52" width="7" height="9"/><rect x="486" y="28" width="7" height="9"/><rect x="640" y="48" width="7" height="9"/><rect x="812" y="38" width="7" height="9"/><rect x="972" y="30" width="7" height="9"/><rect x="1130" y="56" width="7" height="9"/><rect x="1290" y="36" width="7" height="9"/></g></svg></div>
+<svg class="web-corner tl" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="1.6"><path d="M0 0 L200 200 M0 0 L200 96 M0 0 L104 200 M0 0 L200 0 M0 0 L0 200"/><path d="M28 8 Q44 30 8 30 Q40 62 66 44 Q58 92 96 82 Q92 132 142 118 Q136 176 196 158"/></g></svg>
+<svg class="web-corner tr" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="1.6"><path d="M0 0 L200 200 M0 0 L200 96 M0 0 L104 200 M0 0 L200 0 M0 0 L0 200"/><path d="M28 8 Q44 30 8 30 Q40 62 66 44 Q58 92 96 82 Q92 132 142 118 Q136 176 196 158"/></g></svg>
+
+<!-- SPIDEY INTRO -->
+<div class="spidey-wrap" id="spideyIntro" role="dialog" aria-label="Miles Morales Spider-Man style greeting from Praveen" aria-hidden="true">
+  <button class="spidey-close" id="spideyClose" aria-label="Dismiss greeting">×</button>
+  <div class="spidey-drop">
+    <div class="spidey-swing">
+    <div class="spidey-bob">
+      <div class="web-line" aria-hidden="true"></div>
+      <!-- Hand-drawn upside-down web-slinger in classic red & blue -->
+      <svg class="spidey-char" viewBox="0 0 120 132" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" aria-label="Miles Morales in a red hood, black jacket, dark pants and red sneakers, hanging upside down, waving and speaking">
+        <g class="leg-l"><path d="M42 14 L52 40 L38 54 L27 30 Z" fill="#222636"/><path d="M27 30 L38 54 L48 48 L39 24 Z" fill="#2b3044"/><rect x="29" y="2" width="17" height="11" rx="5" fill="#d92323" transform="rotate(-18 37 7)"/><rect x="29" y="10" width="17" height="4" rx="2" fill="#fff" transform="rotate(-18 37 12)"/></g>
+        <g class="leg-r"><path d="M78 14 L68 40 L82 54 L93 30 Z" fill="#222636"/><path d="M93 30 L82 54 L72 48 L81 24 Z" fill="#2b3044"/><rect x="74" y="2" width="17" height="11" rx="5" fill="#d92323" transform="rotate(18 83 7)"/><rect x="74" y="10" width="17" height="4" rx="2" fill="#fff" transform="rotate(18 83 12)"/></g>
+        <ellipse cx="60" cy="64" rx="22" ry="20" fill="#101c26"/>
+        <ellipse cx="60" cy="70" rx="13" ry="12" fill="#0a141e" opacity=".7"/>
+        <path d="M40 50 Q60 58 80 50 L80 56 Q60 64 40 56 Z" fill="#c81e1e"/>
+        <path d="M60 56 L60 80" stroke="#2e4a5a" stroke-width="1.6"/>
+        <path d="M40 60 Q18 64 16 80" fill="none" stroke="#101c26" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="15" cy="82" r="6" fill="#c81e1e"/>
+        <g class="wave-arm"><path d="M80 60 Q102 52 104 34" fill="none" stroke="#101c26" stroke-width="9" stroke-linecap="round"/><circle cx="105" cy="32" r="6" fill="#c81e1e"/></g>
+        <ellipse cx="60" cy="103" rx="26" ry="26" fill="#8f1515"/>
+        <ellipse cx="60" cy="102" rx="23" ry="23" fill="#c81e1e"/>
+        <path class="eye" d="M38 101 Q46 89 54 101 Q46 109 38 101Z" fill="#fff" stroke="#7f1d1d" stroke-width="1.8"/>
+        <path class="eye" d="M82 101 Q74 89 66 101 Q74 109 82 101Z" fill="#fff" stroke="#7f1d1d" stroke-width="1.8"/>
+        <ellipse class="mouth" cx="60" cy="117" rx="5" ry="3.2" fill="#5f0f0f"/>
+        <path class="sound-arc a1" d="M92 95 Q99 103 92 111"/>
+        <path class="sound-arc a2" d="M99 89 Q111 103 99 117"/>
+      </svg>
+      <div class="speech">
+        <b><span class="w" style="--i:0">Hello!</span> <span class="w" style="--i:1">I’m</span> <span class="w" style="--i:2"><em>Praveen!</em></span></b>
+        <button class="voice-btn" id="spideyVoiceBtn" type="button">🔊 Hear him say it</button>
+      </div>
+      <audio id="spideyVoice" src="data:application/octet-stream;base64,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" preload="auto"></audio>
+    </div>
+    </div>
+  </div>
+</div>
+<button class="spidey-replay" id="spideyReplay" aria-label="Replay Spider-Man greeting">🕷️ Say hi again</button>
+
+<header class="topbar"><span>🕷️&nbsp; THE AMAZING PRAVEEN — PORTFOLIO</span><span class="right"><span class="avatar">PA</span><span id="clock">--:--</span></span></header>
+
+<div class="layout">
+<main class="window">
+  <div class="win-head"><span class="dot" style="background:#f43f5e"></span><span class="dot" style="background:#f59e0b"></span><span class="dot" style="background:#22c55e"></span></div>
+
+  <!-- HOME / HERO -->
+  <section class="view active" id="view-home">
+    <div class="hero-grid">
+      <div>
+        <div class="hola">Thwip! Hey there! 🕷️</div>
+        <h1>I'm Praveen Ancha</h1>
+        <div class="comic-badge">🕸️ <i>Product Manager</i> · Boston, MA</div>
+        <p class="lede">Technical Product Manager with about 3 years across SaaS, volunteer-help platforms, and enterprise mobile — from problem discovery to shipped product. At <strong>Saayam For All</strong> I lead product for a volunteer-help platform; before that I ran product operations at Northeastern's APMC, built reporting automation at Nexodus, and shipped a utility app used by 2M+ customers at Publicis Sapient.</p>
+        <p class="lede">My niche: <strong>SaaS products with AI features</strong> — PRDs, roadmaps, UAT and release, plus hands-on AI builds with RAG, LLMs and automation.</p>
+        <p class="tagline">Crafting products &nbsp;|&nbsp; decoding market &amp; users &nbsp;|&nbsp; collaborating across the stack<span class="resp">With great product power comes great responsibility.</span></p>
+        <div class="actions">
+          <a class="social" href="https://www.linkedin.com/in/praveenancha" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a class="social" style="background:#0b1526" href="https://github.com/ancha-p29" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+          <button class="btn primary" data-goto="projects">Browse Projects</button>
+          <button class="btn dark" data-goto="fit">✓ Check Role Fit</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>2M+</b><span>customers on ADDC app</span></div>
+          <div class="stat"><b>250+</b><span>product conf. participants</span></div>
+          <div class="stat"><b>Live apps</b><span>tracked with Google Analytics</span></div>
+          <div class="stat"><b>MS ’25</b><span>Northeastern University</span></div>
+        </div>
+        <div class="apps-note"><span>● MY APPS, MEASURED —</span> <b>Chess vs FruityFly, Interview Prep Copilot and my RAG tools are live products, not just case studies.</b> They are instrumented with Google Analytics (GA4) — pageviews, key events like game starts, room joins and searches, and funnel drop-off — so product decisions come from how people actually use the apps, not guesses.</div>
+        <div class="why">
+          <h3>Why Me? — Call It Spidey-Sense</h3>
+          <div class="quadrant" aria-label="Why me quadrant: Praveen sits in the top-right, AI-native, team-driven, high-agency quadrant">
+            <span class="qdot" style="left:18%;top:18%"></span><span class="qdot" style="left:26%;top:30%"></span><span class="qdot" style="left:14%;top:34%"></span><span class="qdot" style="left:30%;top:14%"></span>
+            <span class="qdot" style="left:16%;bottom:18%"></span><span class="qdot" style="left:24%;bottom:26%"></span><span class="qdot" style="left:30%;bottom:14%"></span>
+            <span class="qdot" style="right:16%;bottom:16%"></span><span class="qdot" style="right:24%;bottom:26%"></span><span class="qdot" style="right:10%;bottom:30%"></span>
+            <span class="qyou"></span>
+            <span class="pill" style="left:56%;top:-12px">AI-native builder</span>
+            <span class="pill" style="left:52%;top:22px">Team driven</span>
+            <span class="pill" style="right:2%;top:36px">High agency</span>
+            <span class="pill" style="right:10%;top:78px">Flexible</span>
+            <span class="pill" style="left:52%;top:96px">Data oriented</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROLE FIT CHECKER — HERO CENTERPIECE -->
+      <div class="fit-card" data-fitcard>
+        <div class="fit-head"><div><b>✓ Role Fit Checker</b><span>See how Praveen matches your opening — in 10 seconds</span></div><span class="live">● TRY IT</span></div>
+        <div class="fit-body">
+          <label for="heroRole">You're hiring a…</label>
+          <select id="heroRole" data-role>
+            <option value="pm">Product Manager</option>
+            <option value="tpm">Technical Product Manager</option>
+            <option value="prodops">Product Operations Manager</option>
+            <option value="pgm">Program / Project Manager</option>
+            <option value="po">Product Owner</option>
+            <option value="ba">Business / Operations Analyst</option>
+          </select>
+          <label>In this kind of company…</label>
+          <div class="pills" data-domains>
+            <button type="button" data-d="saas-ai" class="on">SaaS + AI</button>
+            <button type="button" data-d="b2b">B2B SaaS</button>
+            <button type="button" data-d="nonprofit">Community / Civic</button>
+            <button type="button" data-d="enterprise">Enterprise / Mobile</button>
+          </div>
+          <div class="fit-result" data-result></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn primary" data-goto="fit">Full fit breakdown →</button>
+            <button class="btn" data-goto="projects">See matching projects</button>
+          </div>
+        </div>
+        <p class="fit-note">Scored only from the verified experience listed on this page — real roles, real shipped work, no invented metrics or inflated titles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="view" id="view-experience">
+    <h2>Experience</h2><p class="sub">Product roles across a volunteer-help platform, a student-led product organisation, a SaaS consultancy, and enterprise mobile delivery.</p>
+    <div class="timeline">
+      <article class="job"><div class="job-head"><div><h3>Technical Product Manager</h3><span class="co">Saayam For All — volunteer-help platform</span></div><span class="date">CURRENT</span></div>
+      <ul><li>Owned end-to-end UAT and release for the notifications feature and help-request category pages in MVP 1.0.</li><li>Built the MVP 1.0 Feature-to-Issue Mapping tracker and led “Become a Volunteer” flow testing.</li><li>Wrote roadmap PRDs (1.1) for GPT-powered matching, Volunteer Copilot, Fallback Assistant, and the “For Sale &amp; Free” marketplace — scoped as roadmap, not shipped MVP 1.0.</li><li>Defined a GenAI microservice KPI framework and gap analysis; created the GenAI outage CAPA repository on GitHub; drafted the GTM plan with marketing.</li></ul>
+      <div class="tags"><span class="tag">GitHub Scrumban</span><span class="tag">PRDs &amp; Roadmapping</span><span class="tag">UAT &amp; Release</span><span class="tag">GenAI KPIs</span></div></article>
+
+      <article class="job"><div class="job-head"><div><h3>Product Operations &amp; Strategy Lead · VP–Operations</h3><span class="co">APMC — Northeastern University</span></div><span class="date">JAN 2025 — DEC 2025</span></div>
+      <ul><li>Product research and UAT for HuskyHapps, a campus product.</li><li>Helped run a Product Conference with a $25K budget and 250+ participants.</li><li>Built a RAG knowledge assistant on GPT-4o-mini and an event-management app with Firebase.</li></ul>
+      <div class="tags"><span class="tag">Trello</span><span class="tag">RAG / GPT-4o-mini</span><span class="tag">Firebase</span><span class="tag">Product Ops</span></div></article>
+
+      <article class="job"><div class="job-head"><div><h3>Product Manager</h3><span class="co">Nexodus Inc</span></div><span class="date">SAAS &amp; CLIENT WORK</span></div>
+      <ul><li>Extracted Zoho Social data with Python / Selenium and built a Power BI social reporting system.</li><li>Set up n8n AI recurring-reporting automation across 3 accounts.</li><li>Delivered Connecteam, QuickBooks and Zapier client integrations.</li></ul>
+      <div class="tags"><span class="tag">Jira</span><span class="tag">Power BI</span><span class="tag">n8n Automation</span><span class="tag">Python / Selenium</span></div></article>
+
+      <article class="job"><div class="job-head"><div><h3>Mobile Application Developer</h3><span class="co">Publicis Sapient</span></div><span class="date">ENTERPRISE MOBILE</span></div>
+      <ul><li>Worked on the ADDC utility app serving 2M+ customers.</li><li>Contributed to Flutter Express 2.0, an internal framework for faster mobile delivery.</li></ul>
+      <div class="tags"><span class="tag">Jira</span><span class="tag">Flutter</span><span class="tag">Mobile Delivery</span></div></article>
+
+      <article class="job"><div class="job-head"><div><h3>Project Lead — E-Cell</h3><span class="co">RGMCET · NASA Space Apps &amp; Agtech</span></div><span class="date">2019 — 2021</span></div>
+      <ul><li>Project Pragyan (NASA Space Apps 2019): led an autonomous rover (Arduino + Raspberry Pi, C++) using UV / light / gas sensors to rank lunar sample value — about 80% of the insight at about 5% of lab cost.</li><li>Agtech field rover on a ₹50,000 budget, delivered on schedule, with a Random Forest model predicting incursion risk.</li></ul>
+      <div class="tags"><span class="tag">Hardware + Software</span><span class="tag">MoSCoW</span><span class="tag">Stage-gate delivery</span></div></article>
+    </div>
+  </section>
+
+  <!-- PROJECTS + RECOMMENDATIONS -->
+  <section class="view" id="view-projects">
+    <h2>Projects &amp; AI Builds</h2><p class="sub">Selected work — product case studies, data projects, and independent AI tools he actually built and deployed.</p>
+
+    <div class="reco">
+      <h3>✦ Project Recommendations</h3>
+      <p>Not sure where to start? Pick what your team cares about and I'll point you to the 2–3 projects that prove it.</p>
+      <div class="pills" id="recoPills">
+        <button type="button" data-r="ai">AI &amp; RAG systems</button>
+        <button type="button" data-r="strategy">Product strategy &amp; PRDs</button>
+        <button type="button" data-r="data">Data &amp; analytics</button>
+        <button type="button" data-r="live">Shipped live products</button>
+        <button type="button" data-r="delivery">Delivery &amp; operations</button>
+      </div>
+      <div id="recoResult"><em style="color:var(--muted)">Pick an area above to get a short, honest shortlist.</em></div>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="on" data-f="all">All</button><button data-f="ai">AI Tools</button><button data-f="product">Product</button><button data-f="data">Data</button><button data-f="live">Live Products</button>
+    </div>
+    <div class="grid" id="projGrid">
+      <article class="proj" data-cat="ai live" data-id="interview-copilot"><span class="kicker">AI Tool · Live RAG Agent</span><span class="rec-badge">★ Recommended</span><h3>Interview Prep Copilot</h3><p>Live RAG agent for interview preparation. ChromaDB stores vector embeddings, role-based metadata filtering sharpens retrieval, and the Claude API generates answers.</p><div class="tags"><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Claude API</span></div></article>
+      <article class="proj" data-cat="ai" data-id="rag-tools"><span class="kicker">AI Tool · Hugging Face</span><span class="rec-badge">★ Recommended</span><h3>RAG Knowledge Base Builder + Canvas LMS AI Assistant</h3><p>Two deployed tools on Hugging Face Spaces: one builds searchable knowledge bases from documents, the other assists inside Canvas LMS workflows.</p><div class="tags"><span class="tag">Hugging Face Spaces</span><span class="tag">Document RAG</span></div></article>
+      <article class="proj" data-cat="ai product" data-id="career-ally"><span class="kicker">AI Product · Prototype</span><span class="rec-badge">★ Recommended</span><h3>Career Ally</h3><p>AI career-guidance platform, deployed prototype built with Lovable and Gemini 2.5 Pro. Full PRD: 10 personas, 4 hypotheses, 6 metrics. North Star: 30% interview-ready within 180 days, with proof-of-work gates.</p><div class="tags"><span class="tag">PRD</span><span class="tag">Gemini 2.5 Pro</span><span class="tag">Personas</span></div></article>
+      <article class="proj" data-cat="live product" data-id="chess"><span class="kicker">Live Product</span><span class="rec-badge">★ Recommended</span><h3>Chess vs FruityFly</h3><p>A live chess product at chessfruitfly.com — play vs an adaptive FruityFly opponent, local 2-player, or online rooms with guest play.</p><p style="margin-top:8px"><a href="https://chessfruitfly.com" target="_blank" rel="noopener">Play at chessfruitfly.com →</a></p><div class="tags"><span class="tag">Live</span><span class="tag">Game Product</span></div></article>
+      <article class="proj" data-cat="product" data-id="case-studies"><span class="kicker">Product Case Study</span><span class="rec-badge">★ Recommended</span><h3>AI Assistant Case Study + CollabAVIP</h3><p>10+ user interviews on AI assistant usage turned into a PRD, validated with working prototypes. CollabAVIP: a B2B SaaS concept with Figma wireframes across 5 product surfaces.</p><div class="tags"><span class="tag">User Research</span><span class="tag">Figma</span><span class="tag">PRD</span></div></article>
+      <article class="proj" data-cat="data live ai" data-id="apps-analytics"><span class="kicker">Live Apps · Google Analytics</span><span class="rec-badge">★ Recommended</span><h3>My Apps — Live, Tracked &amp; Measured</h3><p>Chess vs FruityFly, Interview Prep Copilot and the RAG Knowledge Base tools are shipped, live apps. Each is instrumented with Google Analytics (GA4): pageviews and sessions, custom events for the moments that matter (starting a game, joining a room, running a search or a prep session), and funnel views that show where users drop off — then used to prioritise fixes and features.</p><div class="tags"><span class="tag">Google Analytics · GA4</span><span class="tag">Event Tracking</span><span class="tag">Funnels</span><span class="tag">Live Products</span></div></article>
+      <article class="proj" data-cat="data" data-id="crime-boston"><span class="kicker">Data · Analytics</span><span class="rec-badge">★ Recommended</span><h3>US Crime Landscape &amp; Boston Property</h3><p>Crime analysis on 982,638 records with Tableau dashboards. Boston property assessment using linear and Random Forest regression in Python.</p><div class="tags"><span class="tag">Tableau</span><span class="tag">Regression</span><span class="tag">Python</span></div></article>
+      <article class="proj" data-cat="product" data-id="alnylam"><span class="kicker">Capstone · Governance</span><span class="rec-badge">★ Recommended</span><h3>Alnylam IT Governance Capstone</h3><p>4-person team: a 5-stage gate framework with RACI matrix and weighted scoring model, piloted on 3 real candidate projects. SIPOC and process flows in LucidChart.</p><div class="tags"><span class="tag">RACI</span><span class="tag">LucidChart</span><span class="tag">Governance</span></div></article>
+      <article class="proj" data-cat="product live" data-id="saayam-mvp"><span class="kicker">Shipped · Volunteer Platform</span><span class="rec-badge">★ Recommended</span><h3>Saayam MVP 1.0 — Notifications &amp; Help Requests</h3><p>End-to-end UAT and release ownership for notifications and help-request category pages, plus the Feature-to-Issue Mapping tracker that kept MVP 1.0 delivery visible.</p><div class="tags"><span class="tag">UAT &amp; Release</span><span class="tag">GitHub Scrumban</span></div></article>
+      <article class="proj" data-cat="data product" data-id="nexodus-reporting"><span class="kicker">Automation · SaaS</span><span class="rec-badge">★ Recommended</span><h3>Nexodus Reporting Automation</h3><p>Power BI social reporting system built from Zoho Social data extracted with Python / Selenium, plus n8n recurring-reporting automation across 3 accounts.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">n8n</span><span class="tag">Python</span></div></article>
+    </div>
+  </section>
+
+  <!-- FULL FIT CHECKER -->
+  <section class="view" id="view-fit">
+    <h2>✓ Role Fit Checker</h2>
+    <p class="sub">A straight answer, backed by evidence. Pick the role and the kind of company — the checker scores Praveen only against the verified experience on this page and shows you exactly where the match comes from, plus anything to probe in an interview.</p>
+    <div class="fit-layout">
+      <div class="fit-card" data-fitcard>
+        <div class="fit-head"><div><b>Check the fit</b><span>Same checker as the home page, with the full breakdown</span></div><span class="live">● TRY IT</span></div>
+        <div class="fit-body">
+          <label>You're hiring a…</label>
+          <select data-role>
+            <option value="pm">Product Manager</option>
+            <option value="tpm">Technical Product Manager</option>
+            <option value="prodops">Product Operations Manager</option>
+            <option value="pgm">Program / Project Manager</option>
+            <option value="po">Product Owner</option>
+            <option value="ba">Business / Operations Analyst</option>
+          </select>
+          <label>In this kind of company…</label>
+          <div class="pills" data-domains>
+            <button type="button" data-d="saas-ai" class="on">SaaS + AI</button>
+            <button type="button" data-d="b2b">B2B SaaS</button>
+            <button type="button" data-d="nonprofit">Community / Civic</button>
+            <button type="button" data-d="enterprise">Enterprise / Mobile</button>
+          </div>
+          <div class="fit-result" data-result></div>
+        </div>
+        <p class="fit-note">This is a self-assessment aid, not a guarantee — use the evidence links to verify in the Experience and Projects tabs.</p>
+      </div>
+      <div>
+        <div class="job"><h3>How to read the score</h3><ul>
+          <li><b>85–100 · Strong fit:</b> he has done this exact job, in this kind of company, with shipped work to show.</li>
+          <li><b>70–84 · Good fit:</b> core skills and adjacent experience transfer directly; one area to confirm in interview.</li>
+          <li><b>Below 70 · Partial fit:</b> honest gaps are listed — he would rather you know now than oversell.</li>
+        </ul></div>
+        <div class="job" style="margin-top:14px"><h3>Always true, for every role</h3><ul>
+          <li>About 3 years of experience — early-career, high-agency, not a senior PM.</li>
+          <li>MS in Project Management (Analytics minor), Northeastern, Dec 2025. CSPO + AWS Cloud Practitioner, CAPM in progress.</li>
+          <li>Based in Boston, MA / Moon Township, PA — open to relocation anywhere in the US, and to in-person, hybrid or remote work.</li>
+          <li>Engineering background (Publicis Sapient) — comfortable working directly with developers.</li>
+        </ul>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn primary" href="mailto:praveenancha29@gmail.com?subject=Role%20fit%20—%20Praveen%20Ancha">Discuss a role →</a><button class="btn" data-goto="experience">See the evidence</button></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS / CERTS -->
+  <section class="view" id="view-skills">
+    <h2>Skills &amp; Certifications</h2>
+    <div class="cert"><div class="badge">🎓</div><div><b>MS, Project Management (minor: Analytics)</b><br><span style="color:var(--muted)">Northeastern University — Dec 2025</span></div></div>
+    <div class="cert"><div class="badge">🎓</div><div><b>B.Tech, Electronics &amp; Communication Engineering</b><br><span style="color:var(--muted)">RGM College of Engineering &amp; Technology, India — 2021 · CNFET thesis: 43% transistor-count reduction (Cadence Virtuoso, HSPICE)</span></div></div>
+    <div class="cert"><div class="badge">🏅</div><div><b>CSPO · AWS Cloud Practitioner · CAPM in progress</b><br><span style="color:var(--muted)">Certified Scrum Product Owner, AWS Certified Cloud Practitioner</span></div></div>
+    <div class="skills">
+      <div class="skillbox"><h3>Product</h3><ul><li>Discovery &amp; user research</li><li>PRDs, roadmaps, prioritisation</li><li>UAT, release &amp; GTM planning</li><li>Agile, Scrum, Scrumban</li><li>Competitive &amp; market analysis</li></ul></div>
+      <div class="skillbox"><h3>AI &amp; Automation</h3><ul><li>RAG systems &amp; vector search</li><li>LLM workflows &amp; prompt design</li><li>AI evals &amp; KPI frameworks</li><li>n8n, Zapier automations</li><li>Prototyping &amp; rapid builds</li></ul></div>
+      <div class="skillbox"><h3>Tools &amp; Data</h3><ul><li>Jira · Trello · GitHub</li><li>Power BI · Tableau · SQL</li><li>Python · Selenium · Flutter</li><li>Figma · LucidChart · Firebase</li><li>Zoho, Connecteam, QuickBooks</li></ul></div>
+    </div>
+    <p class="sub" style="margin-top:14px;font-size:13.5px">Tools by employer, accurately: Saayam — GitHub Scrumban · Nexodus — Jira · Northeastern — Trello · Publicis Sapient — Jira.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view" id="view-contact">
+    <h2>Let's build something meaningful</h2>
+    <p class="sub">Praveen is based in Boston, MA / Moon Township, PA and is open to relocation anywhere in the US. Best for: Product Manager, Technical PM, Product Operations, Program / Project Manager and Product Owner roles — especially B2B SaaS with AI features.</p>
+    <div class="contact-grid">
+      <div class="contact-card"><b>✉️ Email</b><p><a href="mailto:praveenancha29@gmail.com">praveenancha29@gmail.com</a></p><p style="color:var(--muted)">Fastest way to reach him for roles and introductions.</p></div>
+      <div class="contact-card"><b>in LinkedIn</b><p><a href="https://www.linkedin.com/in/praveenancha" target="_blank" rel="noopener">linkedin.com/in/praveenancha</a></p><p style="color:var(--muted)">Connect and message him directly.</p></div>
+      <div class="contact-card"><b>GH GitHub</b><p><a href="https://github.com/ancha-p29" target="_blank" rel="noopener">github.com/ancha-p29</a></p><p style="color:var(--muted)">Code, AI builds and product artefacts.</p></div>
+      <div class="contact-card"><b>♟️ Live product</b><p><a href="https://chessfruitfly.com" target="_blank" rel="noopener">chessfruitfly.com</a></p><p style="color:var(--muted)">Chess vs FruityFly — a product he built and shipped live.</p></div>
+    </div>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="mailto:praveenancha29@gmail.com?subject=Product%20role%20for%20Praveen%20Ancha">Email Praveen →</a><button class="btn dark" data-goto="fit">✓ Check role fit first</button></div>
+  </section>
+
+  <footer>© 2026 Praveen Ancha · Boston / Moon Township · 🕸️ Every window is his real work.</footer>
+</main>
+
+<aside class="desktop" aria-label="Shortcuts">
+  <button class="dicon" data-goto="fit"><span class="folder">✓</span><span>Role Fit</span></button>
+  <button class="dicon" data-goto="experience"><span class="folder">📁</span><span>Quick Intro</span></button>
+  <button class="dicon" data-goto="skills"><span class="folder">📄</span><span>Resume</span></button>
+  <button class="dicon" data-goto="projects"><span class="folder">🚀</span><span>Projects</span></button>
+</aside>
+</div>
+
+<nav class="dock" aria-label="Portfolio navigation">
+  <button data-goto="home"><span class="ic">👤</span>About</button>
+  <button data-goto="experience"><span class="ic">💼</span>Experience</button>
+  <button data-goto="projects"><span class="ic">📂</span>Projects</button>
+  <button data-goto="fit" class="fit-dock"><span class="ic">🕷️</span>Role Fit</button>
+  <button data-goto="skills"><span class="ic">🎓</span>Skills</button>
+  <button data-goto="contact"><span class="ic">✉️</span>Contact</button>
+</nav>
+
+<script>
+/* ---------- SPIDEY INTRO — drops in, swings, waves and SPEAKS ---------- */
+(function(){
+  var wrap=document.getElementById('spideyIntro'), closeBtn=document.getElementById('spideyClose'), replay=document.getElementById('spideyReplay'),
+      voice=document.getElementById('spideyVoice'), voiceBtn=document.getElementById('spideyVoiceBtn'), timer=null, speakTimer=null;
+  function speak(){
+    if(!voice) return;
+    voiceBtn.classList.remove('show');
+    try{ voice.currentTime=0; }catch(e){}
+    var p=voice.play();
+    if(p&&p.catch){ p.catch(function(){ /* browser blocked autoplay sound — offer the tap-to-hear button */ voiceBtn.classList.add('show'); }); }
+  }
+  if(voice){
+    voice.addEventListener('play', function(){ wrap.classList.add('speaking'); });
+    voice.addEventListener('ended', function(){ wrap.classList.remove('speaking'); });
+    voice.addEventListener('pause', function(){ wrap.classList.remove('speaking'); });
+  }
+  if(voiceBtn) voiceBtn.addEventListener('click', function(e){ e.stopPropagation(); speak(); });
+  function show(){
+    if(!wrap) return;
+    wrap.classList.remove('is-out'); wrap.setAttribute('aria-hidden','false');
+    replay.classList.remove('show');
+    /* restart the word-by-word speaking animation on every visit */
+    wrap.querySelectorAll('.speech b .w').forEach(function(w){ w.style.animation='none'; void w.offsetWidth; w.style.animation=''; });
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ wrap.classList.add('is-in'); }); });
+    clearTimeout(speakTimer); speakTimer=setTimeout(speak, 1000);
+    clearTimeout(timer); timer=setTimeout(hide, 12000);
+  }
+  function hide(){
+    if(!wrap) return;
+    wrap.classList.add('is-out'); wrap.classList.remove('is-in','speaking'); wrap.setAttribute('aria-hidden','true');
+    if(voice){ voice.pause(); }
+    clearTimeout(timer); clearTimeout(speakTimer);
+    setTimeout(function(){ replay.classList.add('show'); }, 650);
+  }
+  if(closeBtn) closeBtn.addEventListener('click', hide);
+  if(replay) replay.addEventListener('click', show);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && wrap && wrap.classList.contains('is-in')) hide(); });
+  /* Drop in only once the visitor has entered the portfolio from the landing page */
+  window.__showSpidey = show;
+  if(!document.getElementById('landingPage')) setTimeout(show, 450);
+})();
+
+function tick(){var d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});}
+tick(); setInterval(tick,20000);
+
+var views=document.querySelectorAll('.view');
+function go(id){
+  views.forEach(function(v){v.classList.toggle('active', v.id==='view-'+id);});
+  document.querySelectorAll('.dock button').forEach(function(b){b.classList.toggle('active', b.dataset.goto===id);});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('[data-goto]').forEach(function(el){ el.addEventListener('click', function(){ go(el.dataset.goto); }); });
+go('home');
+
+/* ---------- ROLE FIT CHECKER (verified evidence only) ---------- */
+var FIT={
+ pm:{label:"Product Manager", base:86, ev:["Discovery → PRD → roadmap → UAT → release, owned end-to-end at Saayam (MVP 1.0)","Product research & UAT for HuskyHapps at Northeastern APMC","Full PRDs with personas & metrics — e.g. Career Ally: 10 personas, 4 hypotheses, 6 metrics"], probe:"Depth in pricing / growth experimentation — his background is discovery, delivery and AI feature rollouts."},
+ tpm:{label:"Technical Product Manager", base:90, ev:["Current title at Saayam For All — GenAI KPI framework, outage CAPA repo, feature-to-issue tracking on GitHub","Engineering background: Mobile App Developer at Publicis Sapient (ADDC app, 2M+ customers)","Builds his own RAG systems (ChromaDB, Claude API, GPT-4o-mini) — speaks developer fluently"], probe:"Infrastructure / platform depth — his technical strength is product-side AI and mobile, not backend systems."},
+ prodops:{label:"Product Operations Manager", base:88, ev:["Product Operations & Strategy Lead at Northeastern APMC (Jan–Dec 2025)","Reporting systems & automation: Power BI at Nexodus, n8n automation across 3 accounts","Process frameworks: 5-stage gate + RACI capstone piloted on 3 real projects; MVP tracking at Saayam"], probe:"Scale of ops — his ops work is team / org level, not global multi-thousand-person operations."},
+ pgm:{label:"Program / Project Manager", base:85, ev:["MS in Project Management, Northeastern (Dec 2025); CAPM in progress","Ran a $25K, 250+ participant Product Conference at APMC","Stage-gate delivery since 2019: NASA Space Apps rover and agtech rover, both delivered on schedule / budget"], probe:"Large multi-year programme budgets — his largest owned budget so far is the $25K conference plus fixed-budget hardware builds."},
+ po:{label:"Product Owner", base:84, ev:["CSPO — Certified Scrum Product Owner","Backlog & release ownership at Saayam on a GitHub Scrumban board","UAT ownership: notifications release, volunteer-flow testing, HuskyHapps UAT"], probe:"He has worked Scrumban and Agile delivery; a strict SAFe / large-scale framework setup would be new."},
+ ba:{label:"Business / Operations Analyst", base:78, ev:["Analytics minor + live-product analytics: Google Analytics (GA4) event tracking and funnels across his shipped apps","Power BI & Tableau reporting systems at Nexodus; Python / SQL throughout","982,638-record crime analysis and regression modelling (Boston Property)"], probe:"He is a PM first — for a pure, code-heavy data analyst seat, a specialist analyst will out-code him."}
+};
+var DOMAIN={
+ "saas-ai":{label:"SaaS + AI features", mod:6, note:"This is his stated niche: SaaS products with AI feature rollouts — Saayam GenAI roadmaps plus his own RAG builds."},
+ "b2b":{label:"B2B SaaS", mod:3, note:"Direct evidence: Nexodus client SaaS work and the CollabAVIP B2B SaaS concept (5 Figma surfaces)."},
+ "nonprofit":{label:"Community / civic tech", mod:5, note:"Direct evidence: Technical PM at Saayam For All's volunteer-help platform, shipping and measuring live product for a community audience."},
+ "enterprise":{label:"Enterprise / mobile", mod:4, note:"Direct evidence: Publicis Sapient enterprise mobile delivery for a 2M+ customer utility app."}
+};
+function fitHTML(roleKey, domKey){
+  var r=FIT[roleKey], d=DOMAIN[domKey];
+  var score=Math.max(40, Math.min(96, r.base + d.mod));
+  var verdict = score>=85 ? "Strong fit" : (score>=70 ? "Good fit" : "Partial fit");
+  var lis = r.ev.map(function(e){return "<li>"+e+"</li>";}).join("");
+  return "<h4>"+verdict+" — "+score+" / 100 · "+r.label+" · "+d.label+"</h4>"
+    + "<div class='meter'><i style='width:"+score+"%'></i></div>"
+    + "<p style='margin:4px 0'>"+d.note+"</p><ul>"+lis+"</ul>"
+    + "<p style='margin:8px 0 0'><b>Probe in interview:</b> "+r.probe+"</p>";
+}
+document.querySelectorAll('[data-fitcard]').forEach(function(card){
+  var sel=card.querySelector('[data-role]'), pills=card.querySelectorAll('[data-domains] button'), out=card.querySelector('[data-result]');
+  var dom="saas-ai";
+  function render(){ out.innerHTML=fitHTML(sel.value, dom); }
+  sel.addEventListener('change', render);
+  pills.forEach(function(b){ b.addEventListener('click', function(){ pills.forEach(function(x){x.classList.remove('on')}); b.classList.add('on'); dom=b.dataset.d; render(); }); });
+  render();
+});
+
+/* ---------- PROJECT FILTERS ---------- */
+document.querySelectorAll('#filters button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('#filters button').forEach(function(x){x.classList.remove('on')}); b.classList.add('on');
+    var f=b.dataset.f;
+    document.querySelectorAll('#projGrid .proj').forEach(function(c){ c.style.display=(f==='all'||c.dataset.cat.indexOf(f)>-1)?'':'none'; });
+  });
+});
+
+/* ---------- PROJECT RECOMMENDATIONS ---------- */
+var RECO={
+ ai:{title:"For AI & RAG systems, start with these three:", ids:["interview-copilot","rag-tools","career-ally"], why:"They show the full stack of his AI work — a live RAG agent with ChromaDB + Claude API, deployed knowledge-base tools on Hugging Face, and an AI product taken from PRD to prototype."},
+ strategy:{title:"For product strategy & PRDs, start with these three:", ids:["career-ally","case-studies","saayam-mvp"], why:"Career Ally has the full PRD (personas, hypotheses, metrics), the case-study work shows interview-to-PRD craft, and Saayam shows strategy that actually shipped."},
+ data:{title:"For data & analytics, start with these three:", ids:["apps-analytics","nexodus-reporting","crime-boston"], why:"Google Analytics (GA4) tracking and funnels on his live apps, a Power BI reporting system with automated pipelines, and a 982,638-record Tableau analysis — real usage, real datasets, real outputs."},
+ live:{title:"For shipped live products, start with these three:", ids:["chess","saayam-mvp","interview-copilot"], why:"A live consumer product anyone can open today, a volunteer-platform MVP he released, and a live RAG agent — proof he finishes and ships, not just plans."},
+ delivery:{title:"For delivery & operations, start with these three:", ids:["saayam-mvp","alnylam","nexodus-reporting"], why:"Release ownership under a Scrumban board, a governance framework piloted on real projects, and client integrations delivered end-to-end."}
+};
+var recoResult=document.getElementById('recoResult');
+document.querySelectorAll('#recoPills button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('#recoPills button').forEach(function(x){x.classList.remove('on')});
+    document.querySelectorAll('#filters button').forEach(function(x){x.classList.remove('on')});
+    document.querySelector('#filters button[data-f="all"]').classList.add('on');
+    b.classList.add('on');
+    var r=RECO[b.dataset.r];
+    document.querySelectorAll('#projGrid .proj').forEach(function(c){
+      c.style.display='';
+      c.classList.toggle('recommended', r.ids.indexOf(c.dataset.id)>-1);
+    });
+    var names=r.ids.map(function(id){
+      var el=document.querySelector('[data-id="'+id+'"] h3');
+      return "<li><b>"+(el?el.textContent:id)+"</b></li>";
+    }).join("");
+    recoResult.innerHTML="<b>"+r.title+"</b><ul>"+names+"</ul><p style='color:var(--muted);margin:8px 0 0'>"+r.why+" They're highlighted with a ★ in the grid below.</p>";
+    recoResult.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+});
+
+/* ---------- LANDING PAGE — Enter Portfolio: Miles pulls the landing up with his webs ---------- */
+(function(){
+  var landing=document.getElementById('landingPage'), btn=document.getElementById('enterPortfolio'), pull=document.getElementById('webPull');
+  if(!landing||!btn) return;
+  btn.focus({preventScroll:true});
+  var opened=false;
+  function finishOpen(){
+    landing.style.display='none';
+    if(pull) pull.style.display='none';
+    if(window.__showSpidey) window.__showSpidey();
+  }
+  btn.addEventListener('click', function(){
+    if(opened) return;
+    opened=true;
+    btn.disabled=true;
+    document.body.classList.remove('landing-active');
+    window.scrollTo({top:0});
+    var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduced || !pull){
+      landing.classList.add('is-leaving');
+      setTimeout(finishOpen, reduced ? 60 : 720);
+      return;
+    }
+    /* 1) Miles drops in at the top and shoots webs onto the landing page */
+    btn.innerHTML='Thwip! Pulling it up…';
+    pull.classList.add('show');
+    landing.classList.add('is-webbing');
+    /* 2) He yanks — puller, webs and the whole landing page fly up together */
+    setTimeout(function(){
+      landing.classList.remove('is-webbing');
+      landing.classList.add('is-pulled');
+      pull.classList.add('is-pulled');
+    }, 560);
+    /* 3) Landing is gone — the portfolio is open and Miles drops in to say hello */
+    setTimeout(finishOpen, 1480);
+  });
+})();
+</script>
+</body>
+</html>
